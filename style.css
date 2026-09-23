@@ -174,3 +174,22 @@ main {
   font-weight: var(--fw-extrabold);
   font-size: 0.875rem;
 }
+
+/* 5. Footer Attribution */
+.attribution {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: var(--clr-neutral-gray-950);
+}
+
+.attribution a {
+  color: var(--clr-neutral-gray-950);
+  font-weight: var(--fw-extrabold);
+  text-decoration: underline;
+}
+
+.attribution a:hover,
+.attribution a:focus-visible {
+  color: var(--clr-neutral-white);
+}
