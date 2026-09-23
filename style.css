@@ -22,3 +22,28 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* 2. Design Tokens & CSS Variables */
+:root {
+  /* Colors */
+  --clr-primary-yellow: hsl(47, 88%, 63%);
+  --clr-neutral-white: hsl(0, 0%, 100%);
+  --clr-neutral-gray-500: hsl(0, 0%, 42%);
+  --clr-neutral-gray-950: hsl(0, 0%, 7%);
+
+  /* Typography */
+  --ff-primary: "Figtree", system-ui, -apple-system, sans-serif;
+  --fw-medium: 500;
+  --fw-extrabold: 800;
+
+  /* Fluid Typography (No media queries used) */
+  --fs-title: clamp(1.25rem, 1.1rem + 0.65vw, 1.5rem);
+  --fs-body: clamp(0.875rem, 0.82rem + 0.25vw, 1rem);
+  --fs-tag: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+  --fs-date: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+
+  /* Spacing & Layout */
+  --radius-card: 1.25rem;
+  --radius-tag: 0.25rem;
+  --shadow-offset: 8px;
+}
