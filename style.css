@@ -47,3 +47,27 @@
   --radius-tag: 0.25rem;
   --shadow-offset: 8px;
 }
+
+/* 3. CSS Reset & Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+  background-color: var(--clr-primary-yellow);
+  color: var(--clr-neutral-gray-950);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
