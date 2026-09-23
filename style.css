@@ -71,3 +71,106 @@ body {
   align-items: center;
   padding: 1.5rem;
 }
+
+/* 4. Card Component Structural Styles */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.card {
+  background-color: var(--clr-neutral-white);
+  border: 1px solid var(--clr-neutral-gray-950);
+  border-radius: var(--radius-card);
+  padding: 1.5rem;
+  max-width: 24rem;
+  width: 100%;
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0
+    var(--clr-neutral-gray-950);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.card__image-container {
+  width: 100%;
+  border-radius: 0.625rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.card__tag {
+  align-self: flex-start;
+  background-color: var(--clr-primary-yellow);
+  color: var(--clr-neutral-gray-950);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-tag);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-tag);
+}
+
+.card__date {
+  font-size: var(--fs-date);
+  color: var(--clr-neutral-gray-950);
+}
+
+.card__title {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-extrabold);
+  line-height: 1.35;
+}
+
+.card__link {
+  color: var(--clr-neutral-gray-950);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Hover and Focus States */
+.card__link:hover,
+.card__link:focus-visible {
+  color: var(--clr-primary-yellow);
+  outline: none;
+}
+
+.card__title:has(.card__link:focus-visible) {
+  outline: 2px dashed var(--clr-neutral-gray-950);
+  outline-offset: 4px;
+}
+
+.card__description {
+  color: var(--clr-neutral-gray-500);
+}
+
+.card__author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.card__author-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.card__author-name {
+  font-weight: var(--fw-extrabold);
+  font-size: 0.875rem;
+}
