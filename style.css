@@ -36,19 +36,12 @@
   --fw-medium: 500;
   --fw-extrabold: 800;
 
-  /* Fluid Typography */
-  --fs-title: clamp(1.25rem, 1.1rem + 0.65vw, 1.5rem);
-  --fs-body: clamp(0.875rem, 0.82rem + 0.25vw, 1rem);
-  --fs-tag: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
-  --fs-date: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
-
   /* Spacing & Layout */
   --radius-card: 1.25rem;
   --radius-tag: 0.25rem;
   --shadow-offset: 0.5rem;
-  --padding-card: clamp(1.25rem, 1rem + 1vw, 1.5rem);
 
-  /* Animations & Transitions */
+  /* Animation */
   --transition-speed: 0.2s;
 }
 
@@ -63,7 +56,6 @@
 
 body {
   font-family: var(--ff-primary);
-  font-size: var(--fs-body);
   font-weight: var(--fw-medium);
   line-height: 1.5;
   background-color: var(--clr-primary-yellow);
@@ -73,18 +65,27 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+  padding: 1.5rem;
 }
 
-/* 4. Card Component Structural Styles */
+/* 4. Container Query Setup */
 main {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  container-type: inline-size;
+  container-name: card-wrapper;
 }
 
+/* Default Mobile Component Values (Base) */
 .card {
+  --fs-title: 1.25rem;
+  --fs-body: 0.875rem;
+  --fs-tag: 0.75rem;
+  --fs-date: 0.75rem;
+  --padding-card: 1.25rem;
+
   background-color: var(--clr-neutral-white);
   border: 0.0625rem solid var(--clr-neutral-gray-950);
   border-radius: var(--radius-card);
@@ -96,6 +97,17 @@ main {
   transition:
     box-shadow var(--transition-speed) ease,
     transform var(--transition-speed) ease;
+}
+
+/* Desktop/Larger Container Breakpoint Scope */
+@container card-wrapper (min-width: 22rem) {
+  .card {
+    --fs-title: 1.5rem;
+    --fs-body: 1rem;
+    --fs-tag: 0.875rem;
+    --fs-date: 0.875rem;
+    --padding-card: 1.5rem;
+  }
 }
 
 .card__image-container {
@@ -160,6 +172,7 @@ main {
 
 .card__description {
   color: var(--clr-neutral-gray-500);
+  font-size: var(--fs-body);
 }
 
 .card__author {
@@ -198,7 +211,7 @@ main {
   color: var(--clr-neutral-white);
 }
 
-/* Visually hide an element while keeping it accessible to screen readers */
+/* Visually hide element while keeping it accessible */
 .visually-hidden {
   position: absolute;
   width: 0.0625rem;
