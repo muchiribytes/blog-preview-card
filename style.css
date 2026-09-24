@@ -36,7 +36,7 @@
   --fw-medium: 500;
   --fw-extrabold: 800;
 
-  /* Fluid Typography (No media queries used) */
+  /* Fluid Typography */
   --fs-title: clamp(1.25rem, 1.1rem + 0.65vw, 1.5rem);
   --fs-body: clamp(0.875rem, 0.82rem + 0.25vw, 1rem);
   --fs-tag: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
@@ -45,7 +45,8 @@
   /* Spacing & Layout */
   --radius-card: 1.25rem;
   --radius-tag: 0.25rem;
-  --shadow-offset: 8px;
+  --shadow-offset: 0.5rem;
+  --padding-card: clamp(1.25rem, 1rem + 1vw, 1.5rem);
 }
 
 /* 3. CSS Reset & Base Styles */
@@ -69,7 +70,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem;
+  padding: clamp(1rem, 0.8rem + 1vw, 1.5rem);
 }
 
 /* 4. Card Component Structural Styles */
@@ -82,9 +83,9 @@ main {
 
 .card {
   background-color: var(--clr-neutral-white);
-  border: 1px solid var(--clr-neutral-gray-950);
+  border: 0.0625rem solid var(--clr-neutral-gray-950);
   border-radius: var(--radius-card);
-  padding: 1.5rem;
+  padding: var(--padding-card);
   max-width: 24rem;
   width: 100%;
   box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0
@@ -98,7 +99,7 @@ main {
   width: 100%;
   border-radius: 0.625rem;
   overflow: hidden;
-  margin-bottom: 1.5rem;
+  margin-block-end: 1.5rem;
 }
 
 .card__image {
@@ -112,7 +113,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  margin-block-end: 1.5rem;
 }
 
 .card__tag {
@@ -150,8 +151,8 @@ main {
 }
 
 .card__title:has(.card__link:focus-visible) {
-  outline: 2px dashed var(--clr-neutral-gray-950);
-  outline-offset: 4px;
+  outline: 0.125rem dashed var(--clr-neutral-gray-950);
+  outline-offset: 0.25rem;
 }
 
 .card__description {
@@ -177,7 +178,7 @@ main {
 
 /* 5. Footer Attribution */
 .attribution {
-  margin-top: 2rem;
+  margin-block-start: 2rem;
   font-size: 0.75rem;
   text-align: center;
   color: var(--clr-neutral-gray-950);
@@ -197,12 +198,24 @@ main {
 /* Visually hide an element while keeping it accessible to screen readers */
 .visually-hidden {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  width: 0.0625rem;
+  height: 0.0625rem;
   padding: 0;
-  margin: -1px;
+  margin: -0.0625rem;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* 6. Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
