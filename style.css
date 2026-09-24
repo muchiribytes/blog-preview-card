@@ -47,6 +47,9 @@
   --radius-tag: 0.25rem;
   --shadow-offset: 0.5rem;
   --padding-card: clamp(1.25rem, 1rem + 1vw, 1.5rem);
+
+  /* Animations & Transitions */
+  --transition-speed: 0.2s;
 }
 
 /* 3. CSS Reset & Base Styles */
@@ -91,8 +94,8 @@ main {
   box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0
     var(--clr-neutral-gray-950);
   transition:
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
+    box-shadow var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
 }
 
 .card__image-container {
@@ -140,7 +143,7 @@ main {
 .card__link {
   color: var(--clr-neutral-gray-950);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--transition-speed) ease;
 }
 
 /* Hover and Focus States */
@@ -210,12 +213,7 @@ main {
 
 /* 6. Reduced Motion Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  :root {
+    --transition-speed: 0s;
   }
 }
